@@ -2,6 +2,9 @@ import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 import router from './routes/user.routes.js';
+import videoRouter from "./routes/video.routes.js"
+import likeRouter from "./routes/like.routes.js"
+import playlistRouter from "./routes/playlist.routes.js"
 //import route from "./routes/healthcheck.routes.js";
 const app = express()
 import healthcheckRouter from "./routes/healthcheck.routes.js"
@@ -27,4 +30,7 @@ app.use("/api/v1/users",router) ;
 //app.use("/",route);  //for health check purpose
 app.use("/api/v1/healthcheck", healthcheckRouter)
 app.use("/api/v1/tweets", tweetRouter)
+app.use("/api/v1/videos", videoRouter)
+app.use("/api/v1/likes", likeRouter)
+app.use("/api/v1/playlists", playlistRouter)
 export {app}
